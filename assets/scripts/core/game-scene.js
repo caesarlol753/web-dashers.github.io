@@ -4195,6 +4195,18 @@ _buildSettingsPopup() {
       }
       this._downloadBtns = null;
     }
+    if (this._socialIcons && this._socialIcons.length > 0) {
+      for (const _icon of this._socialIcons) {
+        this.tweens.add({
+          targets: _icon,
+          y: screenHeight + 64,
+          duration: 300,
+          ease: "Quad.In",
+          onComplete: () => _icon.destroy()
+        });
+      }
+      this._socialIcons = [];
+    }
     if (this._logo) {
       this.tweens.add({
         targets: this._logo,
